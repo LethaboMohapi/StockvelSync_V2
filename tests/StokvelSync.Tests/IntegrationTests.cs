@@ -79,5 +79,5 @@ public sealed class IntegrationTests
         using var hostile = new HttpRequestMessage(HttpMethod.Post, "/api/auth/logout") { Content = JsonContent.Create(new { }) }; hostile.Headers.Add("X-StokvelSync", "1"); hostile.Headers.Add("Origin", "https://other.example"); Assert.Equal(HttpStatusCode.Forbidden, (await owner.SendAsync(hostile)).StatusCode);
         await Json(await Post(member, "/api/auth/logout", new { })); Assert.Equal(HttpStatusCode.Unauthorized, (await member.GetAsync("/api/me")).StatusCode);
     }
-    static string FindRoot() { var dir = new DirectoryInfo(AppContext.BaseDirectory); while (dir is not null && !File.Exists(Path.Combine(dir.FullName, "StokvelSync.sln"))) dir = dir.Parent; return dir?.FullName ?? throw new InvalidOperationException("Solution root not found."); }
+    static string FindRoot() { var dir = new DirectoryInfo(AppContext.BaseDirectory); while (dir is not null && !File.Exists(Path.Combine(dir.FullName, "StokvelSync_V2.sln"))) dir = dir.Parent; return dir?.FullName ?? throw new InvalidOperationException("Solution root not found."); }
 }

@@ -5,20 +5,20 @@ C# / ASP.NET Core MVC with Razor views, plain JavaScript, and MySQL. Includes an
 ## Open in Visual Studio
 
 1. Extract the ZIP first.
-2. Open **StokvelSync.sln** in **Visual Studio 2026** with the **ASP.NET and web development** workload and .NET 10 SDK installed.
+2. Open **StokvelSync_V2.sln** in **Visual Studio 2026** with the **ASP.NET and web development** workload and .NET 10 SDK installed.
 3. Set **StokvelSync.Web** as the startup project.
 4. Complete the MySQL setup below, then press **F5**.
 5. The app opens at **http://localhost:5080**. The sample-data demonstration is at **http://localhost:5080/demo**.
 
 ## Open in VS Code
 
-1. Extract the ZIP and use **File → Open Folder** to open the **StokvelSync** folder containing `StokvelSync.sln`.
+1. Extract the ZIP and use **File → Open Folder** to open the **StokvelSync** folder containing `StokvelSync_V2.sln`.
 2. Install the recommended **C# Dev Kit** extension and .NET 10 SDK.
 3. Complete the MySQL setup below.
 4. In the integrated terminal, from the solution folder, run:
 
 ```powershell
-dotnet restore StokvelSync.sln
+dotnet restore StokvelSync_V2.sln
 dotnet run --project src/StokvelSync.Web
 ```
 
@@ -100,7 +100,7 @@ The SMS worker marks accepted outbound messages as sent to the provider; this is
 
 ## Tests
 
-Tests are supplied for future use; checks were stopped as requested. `dotnet test StokvelSync.sln` runs domain tests and skips the MySQL integration test unless `STOKVELSYNC_TEST_MYSQL` is set to a dedicated test database connection string, for example database `StockvelSync_V2_tests` with MySQL user `StockvelSync_V2`. CI uses this separate test database. Never point the integration suite at production data.
+Tests are supplied for future use; checks were stopped as requested. `dotnet test StokvelSync_V2.sln` runs domain tests and skips the MySQL integration test unless `STOKVELSYNC_TEST_MYSQL` is set to a dedicated test database connection string, for example database `StockvelSync_V2_tests` with MySQL user `StockvelSync_V2`. CI uses this separate test database. Never point the integration suite at production data.
 
 ## Source map
 
