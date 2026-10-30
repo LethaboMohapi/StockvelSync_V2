@@ -26,7 +26,7 @@ Open **http://localhost:5080**. An F5 launch configuration is also included in `
 
 ## MySQL setup for local development
 
-Use MySQL 8.0 or 8.4. Open MySQL Workbench and run `database/create-database.sql` as a database administrator. It creates the local database and application user.
+Use MySQL 8.0 or 8.4. Open MySQL Workbench and run `database/create-database.sql` as a database administrator. It creates database **`StockvelSync_V2`** and MySQL user **`StockvelSync_V2`**, separately from the first attempt. It does not rename or alter the first database or user.
 
 Copy the example local configuration:
 
@@ -34,7 +34,7 @@ Copy the example local configuration:
 Copy-Item src/StokvelSync.Web/appsettings.Local.example.json src/StokvelSync.Web/appsettings.Local.json
 ```
 
-Edit the MySQL connection string in `src/StokvelSync.Web/appsettings.Local.json` to match your server, port, user and password. The example uses port **3306** and the local development password in the SQL setup script. Keep this local file out of source control.
+Edit the MySQL connection string in `src/StokvelSync.Web/appsettings.Local.json` to match your server, port, user and password. The example uses port **3306** and the local development password in the SQL setup script. Keep this local file out of source control. Both `Database` and `User ID` must be `StockvelSync_V2`. Update any existing local configuration or `ConnectionStrings__MySql` environment variable that still points to the first attempt. If the V2 MySQL user already exists, use its existing password; the setup script does not reset it.
 
 Create the tables, optionally load the sample stokvel, then run:
 
@@ -60,6 +60,8 @@ The app is at **http://localhost:5080**. MySQL is exposed on **127.0.0.1:3307**;
 ```powershell
 docker compose exec web dotnet StokvelSync.Web.dll --seed
 ```
+
+The Compose project is `stockvelsync-v2` and uses a separate `mysql_data_v2` volume. Existing containers must be recreated to apply configuration changes; do not reuse or delete the first attempt's data volume. The host ports remain 5080 and 3307, so stop the first stack or adjust the V2 port mappings if running both simultaneously.
 
 The supplied Compose configuration is for local development. The Docker stack was not run in this session.
 
@@ -98,7 +100,7 @@ The SMS worker marks accepted outbound messages as sent to the provider; this is
 
 ## Tests
 
-Tests are supplied for future use; checks were stopped as requested. `dotnet test StokvelSync.sln` runs domain tests and skips the MySQL integration test unless `STOKVELSYNC_TEST_MYSQL` is set to a dedicated test database connection string. Never point the integration suite at production data.
+Tests are supplied for future use; checks were stopped as requested. `dotnet test StokvelSync.sln` runs domain tests and skips the MySQL integration test unless `STOKVELSYNC_TEST_MYSQL` is set to a dedicated test database connection string, for example database `StockvelSync_V2_tests` with MySQL user `StockvelSync_V2`. CI uses this separate test database. Never point the integration suite at production data.
 
 ## Source map
 

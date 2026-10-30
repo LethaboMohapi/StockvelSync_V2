@@ -61,7 +61,7 @@ public sealed class Db(IConfiguration config)
     public async Task Migrate(string root)
     {
         await using var c = await Open();
-        var acquired = (await Rows("SELECT GET_LOCK('stokvelsync_migrations',30) AS acquired", c: c)).Single().Number("acquired");
+        var acquired = (await Rows("SELECT GET_LOCK('StockvelSync_V2_migrations',30) AS acquired", c: c)).Single().Number("acquired");
         if (acquired != 1) throw new InvalidOperationException("Migration lock could not be acquired.");
         try
         {
@@ -74,6 +74,6 @@ public sealed class Db(IConfiguration config)
                 await Exec("INSERT INTO schema_migrations(version) VALUES (?)", [version], c);
             }
         }
-        finally { await Rows("SELECT RELEASE_LOCK('stokvelsync_migrations')", c: c); }
+        finally { await Rows("SELECT RELEASE_LOCK('StockvelSync_V2_migrations')", c: c); }
     }
 }
