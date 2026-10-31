@@ -5,6 +5,7 @@
 [![License MIT](https://img.shields.io/badge/license-MIT-007ec6)](LICENSE)
 [![.NET 10.0](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 [![MySQL 8.0+](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?logo=mysql&logoColor=white)](https://dev.mysql.com/doc/)
+![Code by Lethabo Mohapi](https://img.shields.io/badge/Code_by-Lethabo_Mohapi-blue)
 
 C# / ASP.NET Core MVC with Razor views, plain JavaScript, and MySQL. Includes an MIT License. This is the current source snapshot; further checks and fixes were stopped at the user's request.
 
