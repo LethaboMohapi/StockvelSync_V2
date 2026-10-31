@@ -1,5 +1,11 @@
 # StokvelSync
 
+[![Version v1.0.0](https://img.shields.io/badge/version-v1.0.0-007ec6)](https://github.com/LethaboMohapi/StockvelSync_V2)
+[![Application checks](https://img.shields.io/github/actions/workflow/status/LethaboMohapi/StockvelSync_V2/ci.yml?branch=master&label=Application%20checks&logo=github)](https://github.com/LethaboMohapi/StockvelSync_V2/actions/workflows/ci.yml)
+[![License MIT](https://img.shields.io/badge/license-MIT-007ec6)](LICENSE)
+[![.NET 10.0](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+[![MySQL 8.0+](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?logo=mysql&logoColor=white)](https://dev.mysql.com/doc/)
+
 C# / ASP.NET Core MVC with Razor views, plain JavaScript, and MySQL. Includes an MIT License. This is the current source snapshot; further checks and fixes were stopped at the user's request.
 
 ## Open in Visual Studio
