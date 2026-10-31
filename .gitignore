@@ -8,3 +8,5 @@ TestResults/
 **/appsettings.Local.json
 **/data-protection-keys/
 .DS_Store
+.env.example
+.env
